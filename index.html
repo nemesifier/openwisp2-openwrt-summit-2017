@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>OpenWISP 2: the modular configuration manager for OpenWRT / LEDE</title>
+        <meta name="author" content="Federico Capoano">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="reveal">
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section>
+    <h1>OpenWISP 2</h1>
+    <h3>the modular configuration manager for OpenWRT / LEDE</h3>
+    <p>
+        <small>By <a href="https://github.com/nemesisdesign">Federico Capoano</a> / <a href="http://twitter.com/nemesisdesign">@nemesisdesign</a></small>
+    </p>
+    <p>
+        <img src="images/openwisp-white.svg" alt="openwisp" width="40%"
+             style="border: 0 none; box-shadow: none; background: transparent">
+    </p>
+</section>
+
+<section>
+    <section data-background="#000">
+        <blockquote>
+            &ldquo;Intelligence is the ability to avoid doing work, yet getting the work done.&rdquo;
+        </blockquote>
+        <p style="text-align: right">Linus Torvalds</p>
+        <aside class="notes">
+          <p>Wow that's such a great concept!</p>
+          <p>I wonder if many of the companies using OpenWRT/LEDE are following that advice at all.</p>
+          <p>Are they avoid doing the hard work or are they reinventing the wheel?</p>
+        </aside>
+    </section>
+
+    <section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
+        <h3>One day that changed my life was...</h3>
+        <p>25th of October 2014</p>
+        <p>Google Mentor Summit in California</p>
+    </section>
+
+    <section data-background="#000">
+        <img src="images/gsoc-torvalds.jpg" alt="">
+
+        <aside class="notes">
+            <p>In case you don't recognize me because I was 15kg heavier
+               I'm the guy behind the woman in the violet vietnamese dress</p>
+
+            <p>That day, I finally understood what,
+               in my humble opinion, is the most important reason for which
+               Open Source software is so convenient for companies.</p>
+        </aside>
+    </section>
+
+    <section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
+        <h3>The number 1 reason Open Source is important for companies (IMHO)</h3>
+
+        <p>Share the lower level solutions<br>
+           to fix more important problems.</h3>
+
+        <aside class="notes">
+            <p>That day, I finally understood what,
+               in my humble opinion, is the most important reason for which
+               Open Source software is so convenient for companies.</p>
+
+            <p>It's because it allows companies to share resources with
+               one another to fix the low level common problems,
+               those problems that the general public usually considers boring
+               while geeks love to work on.</p>
+
+            <p>By adopting open source solutions,
+               companies can deliver value without compromising their core business,
+               thus avoid the hard work of developing their own solution from scratch.</p>
+
+            <p>The resources saved in reinventing the wheel can be used to improve
+               the adopted solution, creating a virtuous cycle.</p>
+         </aside>
+    </section>
+
+    <section>
+        <h2>Enter OpenWISP 2</h2>
+        <h3>the modular configuration manager for OpenWRT / LEDE</h3>
+        <p>
+            <img src="images/openwisp-white.svg" alt="openwisp" width="40%"
+                 style="border: 0 none; box-shadow: none; background: transparent">
+        </p>
+        <p>Which you can reuse instead of building<br>
+           your own from scratch.</p>
+    </section>
+</section>
+
+<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+    <h3>Deeply thankful to speak here</h3>
+
+    <p>Thank your for your involvement in<br>
+        Open Source networking!</p>
+
+    <p>
+        <span class="fragment">OpenWRT/LEDE core developers</span><span class="fragment">, Prpl foundation</span><span class="fragment">, CZ.nic</span>
+    </p>
+    <aside class="notes">
+        <p>I'm deeply thankful for the opportunity to speak about this subject here in
+           front of an audience which is very actively involved in Open Source networking,
+           thank you all for being here!</p>
+
+        <p>I want to thank in particular:</p>
+    </aside>
+</section>
+
+<section data-transition="slide" data-background="#fff" data-background-transition="zoom">
+    <h2>I'm Federico Capoano</h2>
+    <p>OpenWISP Core Developer</p>
+    <p>Working for CINECA since 2012</p>
+    <p><img src="images/cineca.jpg" alt="CINECA" style="width:200px">
+</section>
+
+<section>
+    <section data-background="images/openwrt.png">
+        <div style="background-color: rgba(0, 0, 0, 0.4); color: #fff; padding: 20px;">
+            <h3>Configuration Overview</h3>
+            <blockquote>&laquo;A look at the core of OpenWISP 2&raquo;</blockquote>
+        </div>
+    </section>
+
+    <section>
+        <video controls src="videos/configuration-overview.webm"></video>
+    </section>
+</section>
+
+<section>
+    <section data-background="images/aw.gif">
+        <div style="background-color: rgba(0, 0, 0, 0.4); color: #fff; padding: 20px;">
+            <h3>Configuration Templates</h3>
+            <blockquote>&laquo;Don't repeat yourself!&raquo;</blockquote>
+        </div>
+    </section>
+
+    <section>
+        <video controls src="videos/templates.webm"></video>
+    </section>
+</section>
+
+<section>
+    <section data-background="images/robot.gif">
+        <div style="background-color: rgba(0, 0, 0, 0.4); color: #fff; padding: 20px;">
+            <h3>Auto-registration</h3>
+            <blockquote>&laquo;Automate the boring stuff!&raquo;</blockquote>
+        </div>
+    </section>
+
+    <section>
+        <video controls src="videos/autoregistration.webm"></video>
+    </section>
+</section>
+
+<section>
+    <section data-background="images/vpn.gif">
+        <div style="background-color: rgba(0, 0, 0, 0.4); color: #fff; padding: 20px;">
+            <h3>VPN and x509 certificates</h3>
+            <blockquote>&laquo;For both management and traffic!&raquo;</blockquote>
+        </div>
+    </section>
+
+    <section>
+        <video controls src="videos/vpn.webm"></video>
+    </section>
+</section>
+
+<section>
+    <section data-background="images/gis.gif">
+        <div style="background-color: rgba(0, 0, 0, 0.4); color: #fff; padding: 20px;">
+            <h3>GIS module</h3>
+            <blockquote>&laquo;Outdoor and indoor mapping&raquo;</blockquote>
+        </div>
+    </section>
+
+    <section>
+        <video controls src="videos/gis.webm"></video>
+    </section>
+</section>
+
+<section>
+    <section data-background="images/mesh-network.png">
+        <div style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px;">
+            <h3>Network Topology Module</h3>
+            <blockquote>&laquo;Mesh networks are great&raquo;</blockquote>
+        </div>
+    </section>
+
+    <section>
+        <video controls src="videos/network-topology.webm"></video>
+    </section>
+</section>
+
+<section data-transition="slide" data-background-transition="zoom">
+    <section data-background="#b5533c">
+        <div style="background-color: rgba(0, 0, 0, 0.3); color: #fff; padding: 20px;">
+            <h2>Conclusion</h2>
+            <blockquote>&laquo;So what?&raquo;</blockquote>
+        </div>
+    </section>
+
+    <section data-background="images/growth.gif">
+        <div style="background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px;">
+            <h3>OpenWISP 2 is growing</h3>
+            <blockquote>1K users by the end of 2017</blockquote>
+        </div>
+    </section>
+
+    <section data-background="images/gsoc.jpg">
+        <div style="background-color: rgba(0, 0, 0, 0.4); color: #fff; padding: 20px;">
+            <h3>Google Summer of Code 2017</h3>
+            <blockquote>5 projects completed successfully</blockquote>
+        </div>
+    </section>
+
+    <section data-background="images/gci2.png">
+        <div style="background-color: rgba(0, 0, 0, 0.6); color: #fff; padding: 20px;">
+            <h3>Google Code-In</h3>
+            <blockquote>
+                Bring the next generation<br>
+                in the OpenWRT community
+            </blockquote>
+        </div>
+    </section>
+
+    <section data-background="images/partners.gif">
+      <div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px;">
+          <h3>We are looking for partners</h3>
+          <blockquote>
+              Interested in OpenWISP?<br>
+              Come and talk to me!
+          </blockquote>
+      </div>
+    </section>
+
+    <section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
+      <div style="background-color: rgba(0, 0, 0, 0.4); color: #fff; padding: 20px;">
+          <h3>Contacts</h3>
+          <blockquote>
+              <p>Email: <a href="mailto:openwifi@cineca.it">openwifi@cineca.it</a></p>
+              <p>Web: <a href="http://openwisp.org">OpenWISP.org</a></p>
+              <p>Twitter: <a href="https://twitter.com/openwisp">@openwisp</a></p>
+          </blockquote>
+      </div>
+    </section>
+</section>
+
+            </div>
+        </div>
+        <script src="reveal.js/lib/js/head.min.js"></script>
+        <script src="reveal.js/js/reveal.js"></script>
+        <script>
+            // More info https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // More info https://github.com/hakimel/reveal.js#dependencies
+                dependencies: [
+                    { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+                    { src: 'reveal.js/plugin/notes/notes.js', async: true }
+                ]
+            });
+        </script>
+    </body>
+</html>
